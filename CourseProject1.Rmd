@@ -1,0 +1,33 @@
+---
+title: "Developing Data Products"
+author: "Lan Mu"
+date: "6/3/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## June 03, 2016
+```{r}
+library(leaflet)
+set.seed(2020-06-03)
+df<-data.frame(lat=c(40.845241,40.842759,40.842844,40.840602),lng=c(-73.943007,-73.943440,-73.942734,-73.940524))
+columbiaIcon<-makeIcon(
+  iconUrl="Columbia.png",iconWidth = 31*215/230, iconHeight = 31,
+  iconAnchorX = 31*215/230/2,iconAnchorY = 16)
+columbiaSite<-c((paste(sep = "<br/>",
+  "<b>Tower 3</a></b>", 
+  "New York, NY 10032")),(paste(sep = "<br/>",
+  "<b><a href='https://www.publichealth.columbia.edu/'>Mailman School of Public Health</a></b>",
+  "722 W 168th St",
+  "New York, NY 10032"
+)),(paste(sep = "<br/>",
+  "<b><a href='https://www.publichealth.columbia.edu/people/current-students/student-resources/academic-resources/libraries/'>Health Sciences Library</a></b>",
+  "701 W 168th St",
+  "New York, NY 10032"
+)),"<b>168 Street Station")
+df %>% leaflet %>% addTiles() %>% addMarkers(icon=columbiaIcon,popup=columbiaSite)
+```
+
