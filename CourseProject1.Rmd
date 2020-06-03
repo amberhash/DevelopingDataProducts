@@ -15,7 +15,7 @@ library(leaflet)
 set.seed(2020-06-03)
 df<-data.frame(lat=c(40.845241,40.842759,40.842844,40.840602),lng=c(-73.943007,-73.943440,-73.942734,-73.940524))
 columbiaIcon<-makeIcon(
-  iconUrl="Columbia.png",iconWidth = 31*215/230, iconHeight = 31,
+  iconUrl="C:/Users/amber/Desktop/Coursera/DevelopingDataProducts/Columbia.png",iconWidth = 31*215/230, iconHeight = 31,
   iconAnchorX = 31*215/230/2,iconAnchorY = 16)
 columbiaSite<-c((paste(sep = "<br/>",
   "<b>Tower 3</a></b>", 
