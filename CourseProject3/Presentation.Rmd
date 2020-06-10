@@ -1,0 +1,58 @@
+---
+title: "Course Project - Shiny Application and Rerproducible Pitch"
+author: "Lan Mu"
+date: "6/9/2020"
+output: ioslides_presentation
+              
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Overview
+
+This Shiny application is designed for Developing Data Products Coursera Class. Using this shiny application, patients are able to predict the onset of diabetes based on diagnostic measure.
+
+This Shiny application consists of:
+
+- Supporting documentation. The documentation will help you to get started using this application.
+- Input as textbox
+- Operation on the ui input in server.R
+- Reactive output displayed as a result of server calculation
+- Server.R and ui.R shared in github.
+
+## About Training Dataset
+
+The training dataset is from built-in data 'PimaIndiansDiabetes' in 'mlbench' R package. This dataset is originally from National Institute of Diabetes and Digestive and Kidney Diseases. All patients here are females at least 21 years old of Pima Indian heritage and have the following features:
+
+<font size="3">- Pregnancies: Number of times pregnant </font>  
+<font size="3">- Glucose: Plasma glucose concentration a 2 hours in an oral glucose tolerance test </font>  
+<font size="3">- BloodPressure: Diastolic blood pressure (mm Hg) </font>  
+<font size="3">- SkinThickness: Triceps skin fold thickness (mm) </font>  
+<font size="3">- Insulin: 2-Hour serum insulin (mu U/ml) </font>  
+<font size="3">- BMI: Body mass index (weight in kg/(height in m)^2) </font>  
+<font size="3">- DiabetesPedigreeFunction: Diabetes pedigree function </font> 
+<font size="3">- Age: Age (years) </font>  
+<font size="3">- Outcome: Class variable (0 or 1) </font>  
+
+## How the predication works
+
+<font size="4">
+The training dataset 'PimaIndiansDiabetes' was used to train a random forest model. There is no multicollinearity existed in this dataset, so all features were included in this model. The PimaIndiansDiabetes data was further split into 80/20 with 80% towards training set. The following code was used to train the model:  
+```{r echo=TRUE, eval=FALSE}
+rf_pima <- randomForest(diabetes ~.,
+                        data = training, mtry = 8, ntree=50, 
+                        importance = TRUE)
+```
+The accuracy of trained model on testing set is ~77%, indicating a fairly good predication.       
+With this Shiny Application, after obtaining the lab tests, the patients can self-evaluate their probability of onset diabetes prior to physician's diagnostic. In the future, we aim to have a larger training data to yield a more accurate predication model. This would be a beneficial tool to help early detection and treatment of diabetes. 
+</font>    
+
+## Reference
+[Shiny Application Online Access](https://amberhash.shinyapps.io/courseproject3/)  
+[server.R and ui.R on github](https://github.com/amberhash/DevelopingDataProducts/tree/gh-pages/CourseProject3)
+
+
+
+
